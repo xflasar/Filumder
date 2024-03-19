@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: filumder
+spec:
+  selector:
+    app: filumder
+  ports:
+    - protocol: TCP
+      port: 3080
+      targetPort: 3080
+  type: LoadBalancer

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filumder
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: filumder
+  template:
+    metadata:
+      labels:
+        app: filumder
+    spec:
+      containers:
+      - name: filumder
+        image: filumder:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3080
+        resources:
+          limits:
+            cpu: "1"
+            memory: "512Mi"  # Adjust as needed
+          requests:
+            cpu: "0.1"
+            memory: "64Mi"  # Adjust as needed
